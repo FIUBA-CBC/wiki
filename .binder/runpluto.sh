@@ -9,8 +9,6 @@ Options:
 
 
 command="
-import Pkg;
-Pkg.activate(\".\");
 import Pluto;
 Pluto.run(
     host=\"0.0.0.0\",
@@ -20,4 +18,5 @@ Pluto.run(
     require_secret_for_access=false,
 )"
 echo ${command}
-julia --optimize=0 -e "${command}"
+pwd
+julia --project="." --optimize=0 -e "${command}"

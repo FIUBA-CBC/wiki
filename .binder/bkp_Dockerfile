@@ -16,7 +16,7 @@ COPY --chown=${NB_USER}:users ./runpluto.sh ./runpluto.sh
 COPY --chown=${NB_USER}:users ./Project.toml ./Project.toml
 COPY --chown=${NB_USER}:users ./Manifest.toml ./Manifest.toml
 
-RUN julia -e "import Pkg; Pkg.activate(\".\"); Pkg.precompile()"
+RUN julia --project="." -e 'using Pkg; Pkg.instantiate(); Pkg.resolve(); pkg"precompile"'
 
 RUN jupyter labextension install @jupyterlab/server-proxy && \
     jupyter lab build && \
