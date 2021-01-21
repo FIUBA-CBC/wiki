@@ -5,3 +5,4 @@ dependencies:
     - pip
     - pip:
         - git+https://github.com/illumidesk/jupyter-pluto-proxy
+        - nbgitpuller
